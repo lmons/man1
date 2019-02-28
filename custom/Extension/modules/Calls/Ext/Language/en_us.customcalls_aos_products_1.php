@@ -1,0 +1,4 @@
+<?php
+//THIS FILE IS AUTO GENERATED, DO NOT MODIFY
+$mod_strings['LBL_CALLS_AOS_PRODUCTS_1_FROM_AOS_PRODUCTS_TITLE'] = 'Products';
+$mod_strings['LBL_EDITVIEW_PANEL3']='Products Order';

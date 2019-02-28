@@ -1,0 +1,8 @@
+<?php
+// created: 2017-07-11 18:37:15
+$mod_strings = array (
+  'LBL_THIN_CYCLEPLANS_THIN_CYCLEPLANTARGETS_FROM_THIN_CYCLEPLANTARGETS_TITLE' => 'Cycle Plan Targets',
+  'LBL_PRODUCTIVE_FREQUENCY' => 'Productive Frequency',
+  'LBL_CP_TYPE' => 'Cyle Plan type',
+  'LBL_THIN_CYCLEPLANS_THIN_CYCLEPLANTARGETS_PHARMA_1_FROM_THIN_CYCLEPLANTARGETS_PHARMA_TITLE' => 'Cycle Plan Targets Pharma',
+);

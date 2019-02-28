@@ -1,0 +1,129 @@
+<!-- BEGIN: main -->
+<script src="./include/javascript/node_modules/moment/moment.js"></script>
+<script src="./custom/modules/Calls/checkInRestriction.js"></script>
+<script type="text/javascript">
+    function checkCyclePlanPeriod() {
+        var dateStart = new Date($('#date_start').val())
+        var submitDate = moment(dateStart).format('MM-DD-YYYY');
+        var bool = false;
+        $.ajax({
+            url: 'index.php?entryPoint=getCyclePlanPeriod',
+            type: 'POST',
+            async: false,
+            // dataType: 'json',
+            data: {"selectedContacts":"{SELECTED_CONTACTS}"},
+            success: function (data) {
+                if(obj.message=="restriction inactivated"){
+                    bool=true;
+                }
+                else if(obj.message!=false){
+                    startDate= moment(obj.start_date).format('MM-DD-YYYY');
+                    endDate= moment(obj.end_date).format('MM-DD-YYYY');
+                    bool=(submitDate<=endDate && submitDate>=startDate)?true:false;
+                }
+                else bool=false;
+            }
+        });
+        return bool;
+    }
+    function checkForm(){
+        if(!checkDate()){
+            alert("please choose date!");
+            return false;
+        }
+        else if(!checkInRestriction()){
+            alert('you can not submit a call in this date');
+            return false;}
+        else if (!checkCyclePlanPeriod()){
+            alert('you can not make a call to a professionals that is not in your cycle plan');
+            return false;
+        }
+        else return true;
+    }
+    function checkDate(){
+        var dt=document.getElementById("date_start").value;
+           //return isGoodDate(dt);
+        if(dt===''){
+
+            return false
+        }
+        else return true;
+    }
+
+</script>
+
+<form action="index.php" method="post" name="EditView" onsubmit="return checkForm()">
+    <input type="hidden" name="module" value="Calls"/>
+    <input type="hidden" name="record" value=""/>
+    <input type="hidden" name="return_module" value="{RETURN_MODULE}"/>
+    <input type="hidden" name="return_action" value="{RETURN_ACTION}"/>
+    <input type="hidden" name="return_id" value="{RETURN_ID}"/>
+    <input type="hidden" name="action" value=""/>
+    <input type="hidden" name="selected_contacts" value=" {SELECTED_CONTACTS} "/>
+    <input type="hidden" name="status" id="status" value="Planned"/>
+
+    <table cellpadding="0" cellspacing="0" border="0" width="100%">
+        <tr>
+            <td>
+                <div class="moduleTitle">
+                    <h2>Call Scheduler</h2>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td scope="row">
+                <div class="tabForm">
+                    <slot>{MOD.LBL_DATE}</slot>
+                    <slot><input id='date_start' onblur="parseDate(this, '{CALENDAR_DATEFORMAT}');"
+                                 tabindex='8' size='11' maxlength='10' type="text" name="date"> <img
+                            src="index.php?entryPoint=getImage&themeName={THEME}&imageName=jscalendar.gif"
+                            alt="{CALENDAR_DATEFORMAT}" id="date_jscal_trigger" align="absmiddle"> <span
+                            class="dateFormat">{USER_DATEFORMAT}</span></slot>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input id="save_btn_48516" type="submit" name="button" class="button"
+                       title="{APP.LBL_SAVE_BUTTON_TITLE}"
+                       accesskey="{APP.LBL_SAVE_BUTTON_KEY}"
+                       onclick="this.form.action.value='SaveMassCalls';"
+                       value="  {APP.LBL_SAVE_BUTTON_LABEL}  "
+                        />
+                <input id="cancel_btn_48516" type="submit" name="button" class="button"
+                       title="{APP.LBL_CANCEL_BUTTON_TITLE}"
+                       accessKey="{APP.LBL_CANCEL_BUTTON_KEY}"
+                       onclick="this.form.action.value='{RETURN_ACTION}'; this.form.module.value='{RETURN_MODULE}'; this.form.record.value='{RETURN_ID}'"
+                       value="  {APP.LBL_CANCEL_BUTTON_LABEL}  "
+                        />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <slot>&nbsp;</slot>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="tabForm">
+                    <slot>
+                        {CONTACTS}
+                    </slot>
+                </div>
+            </td>
+
+        </tr>
+    </table>
+</form>
+<script type='text/javascript'>
+    Calendar.setup({
+        inputField: "date_start",
+        ifFormat: "{CALENDAR_DATEFORMAT}",
+        showsTime: false,
+        button: "date_jscal_trigger",
+        singleClick: true,
+        step: 1
+    });
+</script>
+
+<!-- END: main -->

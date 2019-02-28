@@ -1,0 +1,97 @@
+<?php
+$module_name = 'Thin_CyclePlanTargets';
+$viewdefs [$module_name] = 
+array (
+  'EditView' => 
+  array (
+    'templateMeta' => 
+    array (
+      'includes' => 
+      array (
+        0 => 
+        array (
+          'file' => 'custom/modules/Thin_CyclePlanTargets/cyclePlanType.js',
+        ),
+      ),
+      'maxColumns' => '2',
+      'widths' => 
+      array (
+        0 => 
+        array (
+          'label' => '10',
+          'field' => '30',
+        ),
+        1 => 
+        array (
+          'label' => '10',
+          'field' => '30',
+        ),
+      ),
+      'useTabs' => false,
+      'tabDefs' => 
+      array (
+        'DEFAULT' => 
+        array (
+          'newTab' => false,
+          'panelDefault' => 'expanded',
+        ),
+      ),
+    ),
+    'panels' => 
+    array (
+      'default' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            'name' => 'thin_cycleplantargets_contacts_name',
+          ),
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            'name' => 'accounts_thin_cycleplantargets_1_name',
+            'displayParams' => 
+            array (
+              'initial_filter' => '&account_type_advanced=Pharmacy',
+            ),
+          ),
+          1 => 
+          array (
+            'name' => 'submitted_calls',
+            'label' => 'LBL_SUBMITTED_CALLS',
+          ),
+        ),
+        2 => 
+        array (
+          0 => 
+          array (
+            'name' => 'customer_tier',
+            'studio' => 'visible',
+            'label' => 'LBL_CUSTOMER_TIER',
+          ),
+          1 => 
+          array (
+            'name' => 'call_frequency_target',
+            'label' => 'LBL_CALL_FREQUENCY_TARGET',
+          ),
+        ),
+        3 => 
+        array (
+          0 => 
+          array (
+            'name' => 'thin_cycleplans_thin_cycleplantargets_name',
+            'displayParams' => 
+            array (
+              'initial_filter' => '&cp_type_c_advanced={$fields.cpt_type_c.value}',
+            ),
+          ),
+          1 => 'assigned_user_name',
+        ),
+      ),
+    ),
+  ),
+);
+?>

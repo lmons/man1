@@ -1,0 +1,45 @@
+<?php
+// created: 2017-01-04 14:43:34
+$layout_defs = array (
+  'top_buttons' => 
+  array (
+    0 => 
+    array (
+      'widget_class' => 'SubPanelTopCreateButton',
+    ),
+    1 => 
+    array (
+      'widget_class' => 'SubPanelTopSelectButton',
+      'popup_module' => 'Thin_CyclePlanTargets',
+    ),
+  ),
+  'where' => '',
+  'list_fields' => 
+  array (
+    'name' => 
+    array (
+      'vname' => 'LBL_NAME',
+      'widget_class' => 'SubPanelDetailViewLink',
+      'width' => '45%',
+    ),
+    'date_modified' => 
+    array (
+      'vname' => 'LBL_DATE_MODIFIED',
+      'width' => '45%',
+    ),
+    'edit_button' => 
+    array (
+      'vname' => 'LBL_EDIT_BUTTON',
+      'widget_class' => 'SubPanelEditButton',
+      'module' => 'Thin_CyclePlanTargets',
+      'width' => '4%',
+    ),
+    'remove_button' => 
+    array (
+      'vname' => 'LBL_REMOVE',
+      'widget_class' => 'SubPanelRemoveButton',
+      'module' => 'Thin_CyclePlanTargets',
+      'width' => '5%',
+    ),
+  ),
+);

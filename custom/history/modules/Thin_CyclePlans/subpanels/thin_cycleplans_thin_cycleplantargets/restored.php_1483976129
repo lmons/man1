@@ -1,0 +1,89 @@
+<?php
+// created: 2017-01-09 16:35:24
+$layout_defs = array (
+  'name' => 
+  array (
+    'vname' => 'LBL_NAME',
+    'widget_class' => 'SubPanelDetailViewLink',
+    'width' => '45%',
+    'default' => true,
+  ),
+  'thin_cycleplantargets_contacts_name' => 
+  array (
+    'type' => 'relate',
+    'link' => true,
+    'vname' => 'LBL_THIN_CYCLEPLANTARGETS_CONTACTS_FROM_CONTACTS_TITLE',
+    'id' => 'THIN_CYCLEPLANTARGETS_CONTACTSCONTACTS_IDA',
+    'width' => '10%',
+    'default' => true,
+    'widget_class' => 'SubPanelDetailViewLink',
+    'target_module' => 'Contacts',
+    'target_record_key' => 'thin_cycleplantargets_contactscontacts_ida',
+  ),
+  'specialty_non_db' => 
+  array (
+    'name' => 'specialty_non_db',
+    'vname' => 'LBL_SPECIALTY',
+    'width' => '30%',
+    'default' => true,
+    'sortable' => false,
+  ),
+  'accounts_non_db' => 
+  array (
+    'name' => 'accounts_non_db',
+    'vname' => 'LBL_ACCOUNTS',
+    'width' => '30%',
+    'default' => true,
+    'sortable' => false,
+  ),
+  'brick_non_db' => 
+  array (
+    'name' => 'brick_non_db',
+    'vname' => 'LBL_BRICK',
+    'width' => '30%',
+    'default' => true,
+    'sortable' => false,
+  ),
+  'assigned_user_name' => 
+  array (
+    'link' => true,
+    'type' => 'relate',
+    'vname' => 'LBL_ASSIGNED_TO_NAME',
+    'id' => 'ASSIGNED_USER_ID',
+    'width' => '10%',
+    'default' => true,
+    'widget_class' => 'SubPanelDetailViewLink',
+    'target_module' => 'Users',
+    'target_record_key' => 'assigned_user_id',
+  ),
+  'call_frequency_target' => 
+  array (
+    'type' => 'int',
+    'vname' => 'LBL_CALL_FREQUENCY_TARGET',
+    'width' => '10%',
+    'default' => true,
+  ),
+  'submitted_calls' => 
+  array (
+    'type' => 'int',
+    'default' => true,
+    'vname' => 'LBL_SUBMITTED_CALLS',
+    'width' => '10%',
+  ),
+  'edit_button' => 
+  array (
+    'vname' => 'LBL_EDIT_BUTTON',
+    'widget_class' => 'SubPanelEditButton',
+    'module' => 'Thin_CyclePlanTargets',
+    'width' => '4%',
+    'default' => true,
+  ),
+  'remove_button' => 
+  array (
+    'vname' => 'LBL_REMOVE',
+    'widget_class' => 'SubPanelRemoveButton',
+    'module' => 'Thin_CyclePlanTargets',
+    'width' => '5%',
+    'default' => true,
+  ),
+);
